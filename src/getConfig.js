@@ -27,7 +27,7 @@ const defaultConfig = {
   },
   linters: {},
   subTaskConcurrency: 1,
-  renderer: 'silent',
+  renderer: 'update',
   nonTTYRenderer: 'silent',
   verbose: false
 }
@@ -102,7 +102,7 @@ function getConfig(sourceConfig) {
   // Check if renderer is set in sourceConfig and if not, set accordingly to verbose
   if (isObject(sourceConfig) && !sourceConfig.hasOwnProperty('renderer')) {
     config.renderer = config.verbose ? 'verbose' : 'update'
-    // config.nonTTYRenderer = config.verbose ? 'verbose' : 'silent'
+    config.nonTTYRenderer = config.verbose ? 'verbose' : 'silent'
   }
 
   return config
