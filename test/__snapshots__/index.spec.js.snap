@@ -19,7 +19,8 @@ Running lint-staged with the following config:
 		dot: true
 	},
 	subTaskConcurrency: 1,
-	renderer: 'verbose'
+	renderer: 'verbose',
+	nonTTYRenderer: 'verbose'
 }
 "
 `;

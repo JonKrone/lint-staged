@@ -70,7 +70,8 @@ describe('getConfig', () => {
   it('should set renderer based on verbose key', () => {
     expect(getConfig({})).toEqual(
       expect.objectContaining({
-        renderer: 'update'
+        renderer: 'update',
+        nonTTYRenderer: 'silent'
       })
     )
 
@@ -80,7 +81,8 @@ describe('getConfig', () => {
       })
     ).toEqual(
       expect.objectContaining({
-        renderer: 'update'
+        renderer: 'update',
+        nonTTYRenderer: 'silent'
       })
     )
 
@@ -90,7 +92,8 @@ describe('getConfig', () => {
       })
     ).toEqual(
       expect.objectContaining({
-        renderer: 'update'
+        renderer: 'update',
+        nonTTYRenderer: 'silent'
       })
     )
 
@@ -100,7 +103,8 @@ describe('getConfig', () => {
       })
     ).toEqual(
       expect.objectContaining({
-        renderer: 'verbose'
+        renderer: 'verbose',
+        nonTTYRenderer: 'verbose'
       })
     )
   })
@@ -202,6 +206,7 @@ describe('getConfig', () => {
       },
       subTaskConcurrency: 10,
       renderer: 'custom',
+      nonTTYRenderer: 'silent',
       verbose: true
     }
     expect(getConfig(cloneDeep(src))).toEqual(src)
