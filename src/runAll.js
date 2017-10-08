@@ -10,7 +10,7 @@ const resolveGitDir = require('./resolveGitDir')
 /**
  * Executes all tasks and either resolves or rejects the promise
  * @param scripts
- * @param config {Object},
+ * @param config {Object}
  * @returns {Promise}
  */
 module.exports = function runAll(scripts, config) {

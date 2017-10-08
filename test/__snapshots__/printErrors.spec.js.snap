@@ -2,13 +2,6 @@
 
 exports[`printErrors should print Listr nested errors 1`] = `
 "
-WARN 
-WARN *********
-WARN *********
-WARN ['Listr is pushing error to stack:', {}]
-WARN *********
-WARN *********
-WARN 
 ERROR Foo failed
 ERROR Unicorn failed"
 `;
