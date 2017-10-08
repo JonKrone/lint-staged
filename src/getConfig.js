@@ -15,7 +15,7 @@ const isGlob = require('is-glob')
 /**
  * Default config object
  *
- * @type {{concurrent: boolean, chunkSize: number, gitDir: string, globOptions: {matchBase: boolean, dot: boolean}, linters: {}, subTaskConcurrency: number, renderer: string, verbose: boolean}}
+ * @type {{concurrent: boolean, chunkSize: number, gitDir: string, globOptions: {matchBase: boolean, dot: boolean}, linters: {}, subTaskConcurrency: number, renderer: string, nonTTYRenderer: string, verbose: boolean}}
  */
 const defaultConfig = {
   concurrent: true,
@@ -27,7 +27,8 @@ const defaultConfig = {
   },
   linters: {},
   subTaskConcurrency: 1,
-  renderer: 'update',
+  renderer: 'silent',
+  nonTTYRenderer: 'silent',
   verbose: false
 }
 
@@ -101,6 +102,7 @@ function getConfig(sourceConfig) {
   // Check if renderer is set in sourceConfig and if not, set accordingly to verbose
   if (isObject(sourceConfig) && !sourceConfig.hasOwnProperty('renderer')) {
     config.renderer = config.verbose ? 'verbose' : 'update'
+    // config.nonTTYRenderer = config.verbose ? 'verbose' : 'silent'
   }
 
   return config

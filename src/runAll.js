@@ -10,7 +10,7 @@ const resolveGitDir = require('./resolveGitDir')
 /**
  * Executes all tasks and either resolves or rejects the promise
  * @param scripts
- * @param config {Object}
+ * @param config {Object},
  * @returns {Promise}
  */
 module.exports = function runAll(scripts, config) {
@@ -22,6 +22,7 @@ module.exports = function runAll(scripts, config) {
   const gitDir = config.gitDir
   const concurrent = config.concurrent
   const renderer = config.renderer
+  const nonTTYRenderer = config.nonTTYRenderer
   sgf.cwd = resolveGitDir(gitDir)
 
   return new Promise((resolve, reject) => {
@@ -53,6 +54,7 @@ module.exports = function runAll(scripts, config) {
         return new Listr(tasks, {
           concurrent,
           renderer,
+          nonTTYRenderer,
           exitOnError: !concurrent // Wait for all errors when running concurrently
         })
           .run()
